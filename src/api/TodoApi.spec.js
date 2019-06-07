@@ -24,7 +24,7 @@ describe('TodoApi', () => {
 		, todoRequestOptions = new TodoRequestOptions( host, todoUrl )
 		, todoApi = new TodoApi(todoRequestOptions);
 
-	it('getList() should return 6 mocked itens', (done) => {
+	it('getList() return 5 mock test results', (done) => {
 		var filter = {}
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
