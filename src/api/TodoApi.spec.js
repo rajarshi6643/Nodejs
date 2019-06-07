@@ -112,7 +112,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('createNewItem)', (done) => {
+	it('createNewItem', (done) => {
 		var urlParsed = parsedUrl(todoRequestOptions)
 
 		var formData = {
@@ -146,7 +146,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('updateItem)', (done) => {
+	it('updateItem', (done) => {
 		var filter = { id: '59b29a10747883040351430d' }
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
@@ -181,7 +181,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('deleteItem)', (done) => {
+	it('deleteItem', (done) => {
 		var filter = { id: '59b29a10747883040351430d' }
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 

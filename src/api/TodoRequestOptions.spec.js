@@ -53,7 +53,7 @@ describe('TodoRequestOptions', () => {
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
 	});
 
-	it('getUrlQueryStringFilter)', () => {
+	it('getUrlQueryStringFilter', () => {
 		var filter = {description: 'searchText'}
 		var url = host + todoUrl + todoRequestOptions.getQueryFilters(filter)
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
