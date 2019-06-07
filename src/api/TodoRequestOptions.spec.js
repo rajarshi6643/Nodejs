@@ -9,11 +9,11 @@ describe('TodoRequestOptions', () => {
 		, todoRequestOptions = new TodoRequestOptions( host, todoUrl )
 
 	// getTodoIdUrl
-	it('getTodoIdUrl (return empty)', () => {
+	it('getTodoIdUrl', () => {
 		expect( todoRequestOptions.getTodoIdUrl() ).to.be.empty;
 	});
 
-	it('getTodoIdUrl({id: Int}) should return Int/', () => {
+	it('getTodoIdUrl({id: Int})', () => {
 		var filter = {id: 1}
 		expect(todoRequestOptions.getTodoIdUrl( filter )).to.equal(filter.id + '/')
 
@@ -30,7 +30,7 @@ describe('TodoRequestOptions', () => {
 		expect(todoRequestOptions.getQueryFilters()).to.be.empty;
 	});
 
-	it('getQueryFilters({description: String} return description query url)', () => {
+	it('getQueryFilters({description: String})', () => {
 		var filter = {description: 'find'}
 		expect( todoRequestOptions.getQueryFilters( filter ) ) .to.have.string('find');
 
@@ -43,17 +43,17 @@ describe('TodoRequestOptions', () => {
 
 
 	// getUrl
-	it('getUrl (return url)', () => {
+	it('getUrl', () => {
 		var url = host + todoUrl
 		expect(todoRequestOptions.getUrl()).to.equal(url)
 	});
-	it('getUrl({id: Int} return url with task id)', () => {
+	it('getUrlwithTaxID({id: Int})', () => {
 		var filter = {id: 1123}
 		var url = host + todoUrl + todoRequestOptions.getTodoIdUrl(filter)
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
 	});
 
-	it('getUrl({description: Int} return url with queryString filter)', () => {
+	it('getUrlQueryStringFilter)', () => {
 		var filter = {description: 'searchText'}
 		var url = host + todoUrl + todoRequestOptions.getQueryFilters(filter)
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
@@ -61,7 +61,7 @@ describe('TodoRequestOptions', () => {
 
 
 	// testing constructor
-	it('new TodoRequestOptions(host, get different urls', () => {
+	it("getDifferentUrl", () => {
 		var host2 = 'http://mockedurl-different.test'
 		var todoUrl2 = 'diff/'
 		var todoRequestOptions2 = new TodoRequestOptions(host2, todoUrl2)

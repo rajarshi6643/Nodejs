@@ -24,7 +24,7 @@ describe('TodoApi', () => {
 		, todoRequestOptions = new TodoRequestOptions( host, todoUrl )
 		, todoApi = new TodoApi(todoRequestOptions);
 
-	it('getList (return 5 mock test results)', (done) => {
+	it('getList', (done) => {
 		var filter = {}
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
@@ -80,7 +80,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('getDetails (return mocked item)', (done) => {
+	it('getDetails', (done) => {
 		var filter = { id: '59b29a10747883040351430d'}
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
@@ -112,7 +112,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('create (create new item)', (done) => {
+	it('createNewItem)', (done) => {
 		var urlParsed = parsedUrl(todoRequestOptions)
 
 		var formData = {
@@ -146,7 +146,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('update (return updated item)', (done) => {
+	it('updateItem)', (done) => {
 		var filter = { id: '59b29a10747883040351430d' }
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
@@ -181,7 +181,7 @@ describe('TodoApi', () => {
 	});
 
 
-	it('delete (delete item)', (done) => {
+	it('deleteItem)', (done) => {
 		var filter = { id: '59b29a10747883040351430d' }
 		var urlParsed = parsedUrl(todoRequestOptions, filter)
 
