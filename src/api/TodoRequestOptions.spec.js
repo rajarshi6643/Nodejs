@@ -9,7 +9,7 @@ describe('TodoRequestOptions', () => {
 		, todoRequestOptions = new TodoRequestOptions( host, todoUrl )
 
 	// getTodoIdUrl
-	it('getTodoIdUrl() should return empty', () => {
+	it('getTodoIdUrl (return empty)', () => {
 		expect( todoRequestOptions.getTodoIdUrl() ).to.be.empty;
 	});
 
@@ -26,11 +26,11 @@ describe('TodoRequestOptions', () => {
 
 
 	// getQueryFilters
-	it('getQueryFilters() should return empty', () => {
+	it('getQueryFilters', () => {
 		expect(todoRequestOptions.getQueryFilters()).to.be.empty;
 	});
 
-	it('getQueryFilters({description: String}) should return description regex query url', () => {
+	it('getQueryFilters({description: String} return description query url)', () => {
 		var filter = {description: 'find'}
 		expect( todoRequestOptions.getQueryFilters( filter ) ) .to.have.string('find');
 
@@ -43,17 +43,17 @@ describe('TodoRequestOptions', () => {
 
 
 	// getUrl
-	it('getUrl() should return url', () => {
+	it('getUrl (return url)', () => {
 		var url = host + todoUrl
 		expect(todoRequestOptions.getUrl()).to.equal(url)
 	});
-	it('getUrl({id: Int}) should return url with task id', () => {
+	it('getUrl({id: Int} return url with task id)', () => {
 		var filter = {id: 1123}
 		var url = host + todoUrl + todoRequestOptions.getTodoIdUrl(filter)
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
 	});
 
-	it('getUrl({description: Int}) should return url with queryString filter', () => {
+	it('getUrl({description: Int} return url with queryString filter)', () => {
 		var filter = {description: 'searchText'}
 		var url = host + todoUrl + todoRequestOptions.getQueryFilters(filter)
 		expect(todoRequestOptions.getUrl(filter)).to.equal(url)
@@ -61,7 +61,7 @@ describe('TodoRequestOptions', () => {
 
 
 	// testing constructor
-	it('new TodoRequestOptions(host, url) should get different urls', () => {
+	it('new TodoRequestOptions(host, get different urls', () => {
 		var host2 = 'http://mockedurl-different.test'
 		var todoUrl2 = 'diff/'
 		var todoRequestOptions2 = new TodoRequestOptions(host2, todoUrl2)
