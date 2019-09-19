@@ -28,7 +28,7 @@ jobs:
     - name: Build the Docker Image 
       run: docker build . --file Dockerfile --tag krishnaprasadkv/nodejs
     - name: Push the Docker Image 
-      run: docker push . krishnaprasadkv/nodejs
+      run: docker push krishnaprasadkv/nodejs
       
       env:
         CI: true
