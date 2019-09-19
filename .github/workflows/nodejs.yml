@@ -18,17 +18,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - name: npm install, build, and test
+    - name: Test the Testcases 
       run: |
         npm install
         npm run build --if-present
         npm test
-    - name: login to the docker hub
+    - name: Login to Docker Hub
       run: docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"
-    - name: build docker image 
+    - name: Build the Docker Image 
       run: docker build . --file Dockerfile --tag krishnaprasadkv/nodejs
-    - name: push docker image 
-      run: docker push . --file Dockerfile --tag krishnaprasadkv/nodejs
+    - name: Push the Docker Image 
+      run: docker push . krishnaprasadkv/nodejs
       
       env:
         CI: true
