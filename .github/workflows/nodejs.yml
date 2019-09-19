@@ -24,7 +24,7 @@ jobs:
         npm run build --if-present
         npm test
     - name: login to the docker hub
-      run: docker login --username "${{ secrets.Docker.username }}" --password "${{ secrets.Docker_password }}"
+      run: docker login --username "${{ secrets.Docker_username }}" --password "${{ secrets.Docker_password }}"
     - name: build docker image 
       run: docker build . --file Dockerfile --tag krishnaprasadkv/nodejs
     - name: push docker image 
