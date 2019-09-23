@@ -29,8 +29,12 @@ jobs:
       run: docker build . --file Dockerfile --tag krishnaprasadkv/nodejs
     - name: Push the Docker Image 
       run: docker push krishnaprasadkv/nodejs
-      env:
-        KUBECONFIG_FILE: '${{ secrets.kube_config }}'
+    - name: Authinticating kube 
+      run: | 
+         export KUBECONFIG="${{ secrets.kube_config }}"
+         kubectl get nodes 
+    - name: list the nodes
+      run: kubectl get nodes
     - name: Deploy in node APP
       run: kubectl -n test set image deployment/nginx-deployment "nginx-deployment"=krishnaprasadkv/nodejs
       
