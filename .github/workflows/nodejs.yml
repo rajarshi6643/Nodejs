@@ -17,6 +17,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        
+    - uses: azure/k8s-actions/k8s-set-context@master
+      with:
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+        kubectl get nodes
     - name: Authinticating kube 
       run: | 
         export KUBECONFIG="${{ secrets.config }}"
