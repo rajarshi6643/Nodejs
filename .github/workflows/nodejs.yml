@@ -17,7 +17,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    
+    - name: Authinticating kube 
+      run: | 
+        export KUBECONFIG="${{ secrets.config }}" 
+        echo $KUBECONFIG | base64 -d > ./kubeconfig.yaml
+        kubectl --kubeconfig ./kubeconfig.yaml get nodes 
+    - name: list the nodes
+      run: kubectl get nodes
+    - name: Deploy in node APP
+      run: kubectl --kubeconfig ./kubeconfig.yaml -n test set image deployment/nginx-deployment "nginx-deployment"=krishnaprasadkv/nodejs
     - name: Test the Testcases 
       run: |
         npm install
@@ -29,16 +37,7 @@ jobs:
       run: docker build . --file Dockerfile --tag krishnaprasadkv/nodejs
     - name: Push the Docker Image 
       run: docker push krishnaprasadkv/nodejs
-#     - name: Authinticating kube 
-#       run: | 
-#         export KUBECONFIG="${{ secrets.config }}" 
-#         echo $KUBECONFIG | base64 -d > ./kubeconfig.yaml
-        
-#         kubectl get nodes 
-#     - name: list the nodes
-#       run: kubectl get nodes
-    - name: Deploy in node APP
-      run: kubectl --kubeconfig="${{ secrets.config }}" -n test set image deployment/nginx-deployment "nginx-deployment"=krishnaprasadkv/nodejs
+#     
       
       env:
         CI: true
