@@ -20,7 +20,7 @@ jobs:
     - name: Authinticating kube 
       run: | 
         export KUBECONFIG="${{ secrets.config }}"
-        kubectl --kubeconfig="${{ secrets.config }}" get nodes 
+        kubectl get nodes 
     - name: list the nodes
       run: kubectl get nodes
     - name: Deploy in node APP
