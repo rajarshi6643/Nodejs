@@ -19,9 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Authinticating kube 
       run: | 
-        export KUBECONFIG="${{ secrets.config }}" 
-        echo $KUBECONFIG > ./kubeconfig.yaml
-        kubectl --kubeconfig ./kubeconfig.yaml get nodes 
+        export KUBECONFIG="${{ secrets.config }}"
+        kubectl --kubeconfig="${{ secrets.config }}" get nodes 
     - name: list the nodes
       run: kubectl get nodes
     - name: Deploy in node APP
