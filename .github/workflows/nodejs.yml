@@ -31,7 +31,7 @@ jobs:
       run: docker push krishnaprasadkv/nodejs
     - name: Authinticating kube 
       run: | 
-         export KUBECONFIG="${{ secrets.kube_config }}"
+         export KUBECONFIG="${{ secrets.config }}"
          kubectl get nodes 
     - name: list the nodes
       run: kubectl get nodes
