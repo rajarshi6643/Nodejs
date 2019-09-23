@@ -30,7 +30,7 @@ jobs:
     - name: Push the Docker Image 
       run: docker push krishnaprasadkv/nodejs
       env:
-        KUBECONFIG_FILE: '${{ secrets.config }}'
+        KUBECONFIG_FILE: '${{ secrets.kube_config }}'
     - name: Deploy in node APP
       run: kubectl -n test set image deployment/nginx-deployment "nginx-deployment"=krishnaprasadkv/nodejs
       
